@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ホーム</title>
+<meta name="viewport" content="width=390, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFBC10">
+<link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="stylesheet" href="app.css">
+<script src="dc-lite.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=M+PLUS+Rounded+1c:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1698D9}a:hover{color:#1176AD}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 900px; box-sizing: border-box; background: #F8F8F8; font-family: 'BIZ UDPGothic', sans-serif; color: #333333; position: relative; overflow: hidden">
+  <div aria-hidden="true" style="position: absolute; right: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%; background: #FFF6CC"></div>
+  <div aria-hidden="true" style="position: absolute; left: -50px; top: 300px; width: 130px; height: 130px; border-radius: 50%; background: #FFE4EC"></div>
+
+  <div style="position: relative; display: flex; flex-direction: column; gap: 14px; padding: 16px 20px 0">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <div style="width: 48px; height: 48px; border-radius: 50%; background: #FFD0A0; flex-shrink: 0; box-shadow: 0 0 0 3px #FFFFFF" aria-hidden="true"></div>
+      <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1">
+        <div style="font-size: 14px; color: #5C5C5C">こんばんは</div>
+        <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 20px; font-weight: 800">{{childName}}のおうち</div>
+      </div>
+      <img src="logo.png" alt="あそんでえがお" style="width: 64px; height: 64px; object-fit: contain; border-radius: 18px; background: #FFFFFF; box-shadow: 0 3px 0 #E6E6E6">
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 18px; font-weight: 800">きょうのあなたは？</div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+        <sc-for list="{{moods}}" as="m" hint-placeholder-count="3">
+          <button type="button" aria-pressed="{{m.pressed}}" onClick="{{m.pick}}" style="{{m.style}}">
+            <sc-if value="{{m.on}}" hint-placeholder-val="{{ false }}">
+              <span style="position: absolute; top: 6px; right: 6px; width: 22px; height: 22px; border-radius: 50%; background: #1698D9; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+            </sc-if>
+            <span style="{{m.faceStyle}}" aria-hidden="true">
+              <svg width="34" height="34" viewBox="0 0 32 32" fill="none" stroke="#333333" stroke-width="2.2" stroke-linecap="round"><circle cx="11.5" cy="13" r="1.6" fill="#333333" stroke="none"></circle><circle cx="20.5" cy="13" r="1.6" fill="#333333" stroke="none"></circle><path dc-d="{{m.mouth}}"></path></svg>
+            </span>
+            <span style="font-size: 15px">{{m.label}}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{isGenki}}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #444444">いいですね。今日も{{childName}}との時間を楽しみましょう。</p>
+      </sc-if>
+      <sc-if value="{{isFutsu}}" hint-placeholder-val="{{ true }}">
+        <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #444444">ふつうの日がいちばん。いつもの遊びに、ひとこと足すだけで十分です。</p>
+      </sc-if>
+      <sc-if value="{{isTired}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #444444">おつかれさま。つらくなったら途中でおわっても大丈夫。おやすみの日にしてもいいですよ。</p>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+            <a href="Setup.html" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #FFFFFF; border: 2px solid #1698D9; color: #1176AD; font-size: 15px; font-weight: 700; text-decoration: none; box-sizing: border-box; box-shadow: 0 3px 0 #BFE3F5">むりせずあそぶ</a>
+            <button type="button" onClick="{{rest}}" style="height: 48px; border-radius: 999px; border: 2px solid #858585; background: #FFFFFF; color: #444444; font-size: 15px; cursor: pointer; box-shadow: 0 3px 0 #E0E0E0">きょうはおやすみ</button>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{isRest}}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #444444">ゆっくり休んでくださいね。そばにいるだけで、{{childName}}には十分伝わっています。</p>
+      </sc-if>
+    </div>
+
+    <a href="Teacher.html" style="display: flex; gap: 10px; align-items: flex-start; text-decoration: none; color: #333333">
+      <div style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 50%; background: #A8D8FF; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px #FFFFFF" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.4"></circle><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"></path><path d="M15 14.2c2.6-.3 4.8 1.2 5.5 4.3"></path></svg>
+      </div>
+      <div style="flex-grow: 1; background: #FFFFFF; border-radius: 6px 24px 24px 24px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 0 #E6E6E6">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <div style="font-size: 13px; color: #5C5C5C; flex-grow: 1">{{teamName}}より</div>
+          <div style="font-size: 12px; font-weight: 700; color: #FFFFFF; background: #C0392B; border-radius: 999px; padding: 3px 8px">新着</div>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.75">おととい「あおいくるまだね」と、{{childName}}が見ているものを言葉にしていたのがすてきでした。</p>
+        <div style="font-size: 15px; color: #1176AD; font-weight: 700; text-decoration: underline">つづきを読む</div>
+      </div>
+    </a>
+
+    <div style="background: #FFF6CC; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; position: relative; box-shadow: 0 4px 0 #F2DFA6">
+      <div style="position: absolute; right: 14px; top: -10px; font-size: 12px; font-weight: 700; color: #222222; background: #FFB3C8; border-radius: 999px; padding: 5px 10px; transform: rotate(6deg); box-shadow: 0 2px 0 #E59AB0">NEW 1つ追加！</div>
+      <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 18px; font-weight: 800">きょうのコツ</div>
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 12px 14px; display: flex; gap: 12px; align-items: center">
+        <div style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; background: #A8D8FF; display: flex; align-items: center; justify-content: center; font-family: 'M PLUS Rounded 1c', sans-serif; font-weight: 800; font-size: 18px" aria-hidden="true">1</div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <div style="font-size: 16px; font-weight: 700">お子さんの行動を言葉にする</div>
+          <div style="font-size: 14px; color: #444444">「くるま、はしってるね」</div>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 12px 14px; display: flex; gap: 12px; align-items: center">
+        <div style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; background: #FFB3C8; display: flex; align-items: center; justify-content: center; font-family: 'M PLUS Rounded 1c', sans-serif; font-weight: 800; font-size: 18px" aria-hidden="true">2</div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <div style="font-size: 16px; font-weight: 700">お子さんの動きを真似る</div>
+          <div style="font-size: 14px; color: #444444">手をたたいたら、同じようにたたく</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="Setup.html" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 62px; border-radius: 999px; background: #FFBC10; color: #222222; font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 21px; font-weight: 800; text-decoration: none; box-shadow: 0 5px 0 #D99A00">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#222222" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"></path></svg>
+      あそぶ
+    </a>
+  </div>
+
+  <nav aria-label="メインメニュー" style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; background: #FFFFFF; border-radius: 24px 24px 0 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.06); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 8px 4px 12px; box-sizing: border-box; top: auto; margin-top: 0px; margin-bottom: 0px">
+    <a href="Home.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #333333; font-size: 12px; font-weight: 700">
+      <span style="width: 56px; height: 32px; border-radius: 999px; background: #FFE680; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-6 8 6v8H4z"></path></svg></span>ホーム</a>
+    <a href="Album.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #5C5C5C; font-size: 12px">
+      <span style="width: 44px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"></rect><circle cx="9" cy="10" r="1.6"></circle><path d="M20 16l-5-5-8 8"></path></svg></span>ふりかえり</a>
+    <a href="Teacher.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #5C5C5C; font-size: 12px">
+      <span style="width: 44px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg></span>見守りチーム</a>
+    <a href="Consent.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #5C5C5C; font-size: 12px">
+      <span style="width: 44px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path></svg></span>記録の扱い</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"childName":{"editor":"text","default":"ゆめちゃん"},"teamName":{"editor":"text","default":"◯◯先生のチーム"},"$preview":{"width":390,"height":1060}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mood: 'futsu' };
+  }
+  renderVals() {
+    const mood = this.state.mood;
+    const defs = [
+      { id: 'genki', label: 'げんき', mouth: 'M10 19c3 3.5 9 3.5 12 0', bg: '#FFE680' },
+      { id: 'futsu', label: 'ふつう', mouth: 'M11 20h10', bg: '#A8D8FF' },
+      { id: 'tired', label: 'つかれた', mouth: 'M11 21c3-2.5 7-2.5 10 0', bg: '#D9CCF2' }
+    ];
+    const sel = mood === 'rest' ? 'tired' : mood;
+    const moods = defs.map((d) => {
+      const on = d.id === sel;
+      return {
+        label: d.label,
+        mouth: d.mouth,
+        on,
+        pressed: on ? 'true' : 'false',
+        pick: () => this.setState({ mood: d.id }),
+        style: 'position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 4px 10px; border-radius: 20px; cursor: pointer; color: #333333; font-weight: ' + (on ? '700' : '400') + '; background: ' + (on ? '#F2F9FE' : '#FFFFFF') + '; border: ' + (on ? '3px solid #1698D9' : '2px solid #E6E6E6'),
+        faceStyle: 'width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: ' + d.bg
+      };
+    });
+    return {
+      childName: this.props.childName ?? 'ゆめちゃん',
+      teamName: this.props.teamName ?? '◯◯先生のチーム',
+      moods,
+      isGenki: mood === 'genki',
+      isFutsu: mood === 'futsu',
+      isTired: mood === 'tired',
+      isRest: mood === 'rest',
+      rest: () => this.setState({ mood: 'rest' })
+    };
+  }
+}
+</script>
+</body>
+</html>

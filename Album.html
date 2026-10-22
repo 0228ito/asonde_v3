@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ふりかえり</title>
+<meta name="viewport" content="width=390, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFBC10">
+<link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="stylesheet" href="app.css">
+<script src="dc-lite.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=M+PLUS+Rounded+1c:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1698D9}a:hover{color:#1176AD}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; box-sizing: border-box; background: #F8F8F8; font-family: 'BIZ UDPGothic', sans-serif; color: #333333; position: relative; overflow: hidden; height: 1920px">
+  <div aria-hidden="true" style="position: absolute; left: -60px; top: -50px; width: 200px; height: 200px; border-radius: 50%; background: #FFE4EC"></div>
+  <div aria-hidden="true" style="position: absolute; right: -70px; top: 60px; width: 180px; height: 180px; border-radius: 50%; background: #E3F4FD"></div>
+
+  <div style="position: relative; display: flex; flex-direction: column; gap: 16px; padding: 28px 20px 0">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 4px">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <div style="font-size: 14px; font-weight: 700; color: #5C5C5C">10月の</div>
+        <h1 style="margin: 0; font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 28px; font-weight: 800">えがおアルバム</h1>
+      </div>
+      <button type="button" style="height: 44px; padding: 0 14px; border-radius: 999px; border: 2px solid #1698D9; background: #FFFFFF; color: #1176AD; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 0 #BFE3F5">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1176AD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="M7 8l5-5 5 5"></path><path d="M5 14v6h14v-6"></path></svg>
+        家族に見せる
+      </button>
+    </div>
+
+    <div style="background: #FFF6CC; border-radius: 28px; padding: 22px 20px; display: flex; align-items: center; gap: 18px; position: relative; overflow: hidden; box-shadow: 0 4px 0 #F2DFA6">
+      <div aria-hidden="true" style="position: absolute; right: 18px; top: 14px; width: 12px; height: 12px; border-radius: 50%; background: #FFB3C8"></div>
+      <div aria-hidden="true" style="position: absolute; right: 44px; bottom: 16px; width: 10px; height: 10px; border-radius: 3px; background: #A8D8FF; transform: rotate(20deg)"></div>
+      <div aria-hidden="true" style="position: absolute; right: 90px; top: 22px; width: 8px; height: 8px; border-radius: 50%; background: #B8E8B8"></div>
+      <div style="width: 96px; height: 96px; flex-shrink: 0; border-radius: 50%; background: #FFBC10; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 8px #FFE680" aria-hidden="true">
+        <svg width="62" height="62" viewBox="0 0 32 32" fill="none" stroke="#5A3D00" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="13" r="1.7" fill="#5A3D00" stroke="none"></circle><circle cx="21" cy="13" r="1.7" fill="#5A3D00" stroke="none"></circle><path d="M9 18.5c3.5 4.5 10.5 4.5 14 0"></path><circle cx="7.5" cy="17.5" r="1.6" fill="#FF9BB8" stroke="none"></circle><circle cx="24.5" cy="17.5" r="1.6" fill="#FF9BB8" stroke="none"></circle></svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <div style="font-size: 14px; font-weight: 700; color: #6B4A00">これまでに見つけたえがお</div>
+        <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-weight: 800; color: #333333"><span style="font-size: 52px; line-height: 1.1">128</span><span style="font-size: 20px"> 回</span></div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 0 4px">
+        <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 19px; font-weight: 800">あそんだ日</div>
+        <div style="font-size: 15px">今月 <span style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 22px; font-weight: 800">9</span> 回</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; text-align: center">
+        <sc-for list="{{weekdays}}" as="w" hint-placeholder-count="7">
+          <div style="font-size: 12px; color: #5C5C5C; padding-bottom: 2px">{{w}}</div>
+        </sc-for>
+        <sc-for list="{{cells}}" as="c" hint-placeholder-count="35">
+          <div style="height: 40px; display: flex; align-items: center; justify-content: center">
+            <span style="{{c.style}}">
+              <sc-if value="{{c.on}}" hint-placeholder-val="{{ false }}">
+                <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="#333333" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="13" r="1.8" fill="#333333" stroke="none"></circle><circle cx="21" cy="13" r="1.8" fill="#333333" stroke="none"></circle><path d="M9.5 19c3.2 4 9.8 4 13 0"></path></svg>
+              </sc-if>
+              <sc-if value="{{c.off}}" hint-placeholder-val="{{ true }}">{{c.label}}</sc-if>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="display: flex; flex-direction: column; gap: 4px; padding: 0 4px">
+        <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 19px; font-weight: 800">今月のあなたの声かけ</div>
+        <div style="font-size: 13px; color: #5C5C5C">先月より、こんなにふえました</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+        <sc-for list="{{dos}}" as="d" hint-placeholder-count="4">
+          <div style="{{d.tile}}">
+            <div style="font-size: 14px; font-weight: 700; color: #333333">{{d.label}}</div>
+            <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-weight: 800; color: #333333"><span style="font-size: 34px">{{d.count}}</span><span style="font-size: 15px"> 回</span></div>
+            <div style="align-self: flex-start; font-size: 13px; font-weight: 700; color: #333333; background: #FFFFFF; border-radius: 999px; padding: 3px 10px">+{{d.diff}} ふえた</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: flex-start">
+        <div style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; background: #FFE680; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5A3D00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M5.6 5.6l1.4 1.4M3 12h2M18.4 5.6L17 7M21 12h-2"></path><path d="M9 18h6M10 21h4"></path><path d="M8 14a4 4 0 1 1 8 0c0 1.5-1 2.3-1.5 3h-5C9 16.3 8 15.5 8 14z"></path></svg>
+        </div>
+        <div style="flex-grow: 1; background: #E3F4FD; border-radius: 4px 20px 20px 20px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px">
+          <div style="font-size: 14px; font-weight: 700">つぎは「気持ちを言葉にする」を伸ばしてみよう</div>
+          <p style="margin: 0; font-size: 14px; line-height: 1.7; color: #444444">「いっしょにあそべて、うれしいな」と、気持ちをそのまま伝えてみましょう。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 0 4px">
+        <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 19px; font-weight: 800">コツのバッジ</div>
+        <div style="font-size: 14px"><span style="font-weight: 700">4</span> / 9 こ</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 8px">
+        <sc-for list="{{badges}}" as="b" hint-placeholder-count="9">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+            <div style="{{b.circle}}">
+              <sc-if value="{{b.got}}" hint-placeholder-val="{{ true }}">
+                <span style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 20px; font-weight: 800; color: #333333">{{b.count}}<span style="font-size: 12px">回</span></span>
+              </sc-if>
+              <sc-if value="{{b.locked}}" hint-placeholder-val="{{ false }}">
+                <span style="font-size: 12px; color: #5C5C5C">これから</span>
+              </sc-if>
+            </div>
+            <div style="font-size: 12px; line-height: 1.4; color: #444444">{{b.label}}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 19px; font-weight: 800; padding: 0 8px">うれしい瞬間</div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+        <div style="background: #FFE4EC; border-radius: 6px 6px 18px 6px; padding: 14px; display: flex; flex-direction: column; gap: 6px; transform: rotate(-1.5deg); box-shadow: 0 3px 0 #F5C6D4">
+          <div style="font-size: 12px; color: #5C5C5C">10/21</div>
+          <div style="font-size: 15px; font-weight: 700">目があった</div>
+          <div style="font-size: 13px; line-height: 1.6; color: #444444">パンダさんを見たあと、こっちを見てくれた</div>
+        </div>
+        <div style="background: #E5F7E5; border-radius: 6px 6px 18px 6px; padding: 14px; display: flex; flex-direction: column; gap: 6px; transform: rotate(1.5deg); box-shadow: 0 3px 0 #C5E6C5">
+          <div style="font-size: 12px; color: #5C5C5C">10/18</div>
+          <div style="font-size: 15px; font-weight: 700">まねした</div>
+          <div style="font-size: 13px; line-height: 1.6; color: #444444">「ぶーぶー」をまねして言った</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 19px; font-weight: 800; padding: 0 8px">ベストショット</div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 4px">
+        <div style="background: #FFFFFF; padding: 6px 6px 22px; border-radius: 6px; box-shadow: 0 3px 8px rgba(0,0,0,0.12); transform: rotate(-3deg); position: relative">
+          <div style="height: 84px; border-radius: 3px; background: #FFF6CC"></div>
+          <div style="position: absolute; left: 0; right: 0; bottom: 4px; text-align: center; font-size: 12px; color: #444444">10/21</div>
+        </div>
+        <div style="background: #FFFFFF; padding: 6px 6px 22px; border-radius: 6px; box-shadow: 0 3px 8px rgba(0,0,0,0.12); transform: rotate(2deg); position: relative">
+          <div style="height: 84px; border-radius: 3px; background: #E3F4FD"></div>
+          <div style="position: absolute; left: 0; right: 0; bottom: 4px; text-align: center; font-size: 12px; color: #444444">10/16</div>
+        </div>
+        <div style="background: #FFFFFF; padding: 6px 6px 22px; border-radius: 6px; box-shadow: 0 3px 8px rgba(0,0,0,0.12); transform: rotate(-1deg); position: relative">
+          <div style="height: 84px; border-radius: 3px; background: #FFE4EC"></div>
+          <div style="position: absolute; left: 0; right: 0; bottom: 4px; text-align: center; font-size: 12px; color: #444444">10/09</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav aria-label="メインメニュー" style="position: absolute; left: 0; right: 0; bottom: 0px; height: 84px; background: #FFFFFF; border-radius: 24px 24px 0 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.06); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 8px 4px 12px; box-sizing: border-box; top: auto; margin-top: 0px; margin-bottom: 0px">
+    <a href="Home.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #5C5C5C; font-size: 12px">
+      <span style="width: 44px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-6 8 6v8H4z"></path></svg></span>ホーム</a>
+    <a href="Album.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #333333; font-size: 12px; font-weight: 700">
+      <span style="width: 56px; height: 32px; border-radius: 999px; background: #FFE680; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"></rect><circle cx="9" cy="10" r="1.6"></circle><path d="M20 16l-5-5-8 8"></path></svg></span>ふりかえり</a>
+    <a href="Teacher.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #5C5C5C; font-size: 12px">
+      <span style="width: 44px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg></span>見守りチーム</a>
+    <a href="Consent.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: #5C5C5C; font-size: 12px">
+      <span style="width: 44px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path></svg></span>記録の扱い</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const played = [3, 6, 9, 12, 13, 16, 18, 20, 21];
+    const stamp = ['#FFB3C8', '#A8D8FF', '#FFD0A0', '#B8E8B8', '#FFE680', '#B0C4FF'];
+    const cells = [];
+    for (let i = 0; i < 4; i++) cells.push({ label: '', on: false, off: true, style: 'display: block' });
+    let k = 0;
+    for (let d = 1; d <= 31; d++) {
+      const on = played.indexOf(d) >= 0;
+      cells.push({
+        label: String(d), on, off: !on,
+        style: on
+          ? 'width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: ' + stamp[(k++) % stamp.length] + '; transform: rotate(' + ((d % 3) - 1) * 8 + 'deg)'
+          : 'width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #5C5C5C'
+      });
+    }
+    const tileBg = [['#FFE4EC', '#F5C6D4'], ['#E3F4FD', '#BFE3F5'], ['#FFEEDC', '#F5D3AE'], ['#E5F7E5', '#C5E6C5']];
+    const raw = [
+      { label: 'ほめる', count: 18, diff: 5 },
+      { label: 'くりかえす', count: 9, diff: 3 },
+      { label: '実況中継', count: 24, diff: 8 },
+      { label: '気持ちを言葉にする', count: 4, diff: 1 }
+    ];
+    const dos = raw.map((r, i) => Object.assign({}, r, {
+      tile: 'background: ' + tileBg[i][0] + '; border-radius: 22px; padding: 14px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 3px 0 ' + tileBg[i][1]
+    }));
+    const badgeColors = ['#FFB3C8', '#A8D8FF', '#FFD0A0', '#B8E8B8', '#FFE680', '#B0C4FF', '#FFA8A8', '#A8D8FF', '#FFD0A0'];
+    const items = [
+      { label: 'お子さんと目を合わせる', count: 9 },
+      { label: '微笑みかける', count: 9 },
+      { label: 'はなしかける（単語）', count: 0 },
+      { label: 'お子さんの行動を言葉にする', count: 6 },
+      { label: '会話を繰り返す', count: 0 },
+      { label: 'お子さんの動きを真似る', count: 2 },
+      { label: 'からだに触れる', count: 0 },
+      { label: 'おともだちの動きを真似る', count: 0 },
+      { label: '声かけして指差しする', count: 0 }
+    ];
+    const badges = items.map((it, i) => {
+      const got = it.count > 0;
+      return {
+        label: it.label, count: it.count, got, locked: !got,
+        circle: 'width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-sizing: border-box; ' + (got ? 'background: ' + badgeColors[i] + '; box-shadow: 0 3px 0 rgba(0,0,0,0.12)' : 'background: #FFFFFF; border: 2px dashed #9E9E9E')
+      };
+    });
+    return {
+      weekdays: ['日', '月', '火', '水', '木', '金', '土'],
+      cells, dos, badges
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>記録について</title>
+<meta name="viewport" content="width=390, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFBC10">
+<link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="stylesheet" href="app.css">
+<script src="dc-lite.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=M+PLUS+Rounded+1c:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1176AD}a:hover{color:#0E5F8B}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 960px; box-sizing: border-box; background: #F8F8F8; font-family: 'BIZ UDPGothic', sans-serif; color: #333333; display: flex; flex-direction: column; padding: 20px 20px 28px; gap: 16px">
+  <div style="height: 44px; display: flex; align-items: center">
+    <a href="index.html" aria-label="もどる" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #FFFFFF; box-shadow: 0 3px 0 #E6E6E6">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+    </a>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 8px; padding: 0 4px">
+    <h1 style="margin: 0; font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 25px; font-weight: 800">声とえがおの記録について</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.75; color: #444444">あそんでいる間の声と、カメラに映ったお子さんのえがおを記録します。だれが見る・聞くのか、ここで確かめてください。</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="background: #FFFFFF; border-radius: 24px; padding: 14px 16px; display: flex; gap: 12px; align-items: center; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; background: #FFE680; display: flex; align-items: center; justify-content: center; font-family: 'M PLUS Rounded 1c', sans-serif; font-weight: 800; font-size: 15px" aria-hidden="true">AI</div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 16px; font-weight: 700">AIによる分析</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5C5C5C">声かけのいいところと、お子さんのえがおを見つけます</div>
+      </div>
+      <div style="font-size: 13px; color: #333333; background: #E3F4FD; border-radius: 999px; padding: 4px 10px; white-space: nowrap; font-weight: 700">必須</div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 24px; padding: 14px 16px; display: flex; gap: 12px; align-items: center; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; background: #A8D8FF; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.4"></circle><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"></path><path d="M15 14.2c2.6-.3 4.8 1.2 5.5 4.3"></path></svg>
+      </div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 16px; font-weight: 700">見守りチーム</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5C5C5C">{{teamName}}が、分析結果とえがおの記録を中心に、必要なときに録音を確認します</div>
+      </div>
+      <div style="font-size: 13px; color: #333333; background: #E3F4FD; border-radius: 999px; padding: 4px 10px; white-space: nowrap; font-weight: 700">必須</div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 24px; padding: 14px 16px; display: flex; gap: 12px; align-items: center; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; background: #B8E8B8; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17v3h3l5.2-5.2a4 4 0 0 0 5.3-5.3l-2.3 2.3-2.5-.5-.5-2.5z"></path></svg>
+      </div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 16px; font-weight: 700">サービス改善への協力</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5C5C5C">精度を上げるため、開発チームが確認することがあります。確認の記録は残ります</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0">
+        <button type="button" role="switch" aria-checked="{{devOn}}" aria-label="サービス改善への協力" onClick="{{toggleDev}}" style="{{devTrack}}">
+          <span style="{{devKnob}}"></span>
+        </button>
+        <span style="font-size: 12px; color: #5C5C5C">{{devText}}</span>
+      </div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 24px; padding: 14px 16px; display: flex; gap: 12px; align-items: center; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; background: #FFB3C8; display: flex; align-items: center; justify-content: center" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l8-3 8 3-8 3z"></path><path d="M7 7.5V12c0 1.5 2.2 3 5 3s5-1.5 5-3V7.5"></path><path d="M20 6v5"></path></svg>
+      </div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 16px; font-weight: 700">研究への協力</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5C5C5C">{{univName}}の研究に、個人がわからない形で使います</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0">
+        <button type="button" role="switch" aria-checked="{{resOn}}" aria-label="研究への協力" onClick="{{toggleRes}}" style="{{resTrack}}">
+          <span style="{{resKnob}}"></span>
+        </button>
+        <span style="font-size: 12px; color: #5C5C5C">{{resText}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #FFF6CC; border-radius: 24px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B4A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+    <p style="margin: 0; font-size: 14px; line-height: 1.7; color: #6B4A00">あそんだあとに「声の録音は送らない」を選べます。過去の録音や写真も、いつでも消せます。</p>
+  </div>
+
+  <div style="flex-grow: 1"></div>
+  <div style="display: flex; flex-direction: column; gap: 8px; align-items: center">
+    <a href="Home.html" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 62px; border-radius: 999px; background: #FFBC10; color: #222222; font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 20px; font-weight: 800; text-decoration: none; box-shadow: 0 5px 0 #D99A00">同意してはじめる</a>
+    <a href="#" style="font-size: 15px; padding: 12px">くわしい説明を読む</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"teamName":{"editor":"text","default":"◯◯先生のチーム"},"univName":{"editor":"text","default":"◯◯大学"},"$preview":{"width":390,"height":960}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { dev: false, res: false };
+  }
+  sw(on) {
+    return {
+      track: 'width: 56px; height: 34px; border-radius: 999px; border: 2px solid ' + (on ? '#1698D9' : '#858585') + '; padding: 2px; cursor: pointer; display: flex; align-items: center; justify-content: ' + (on ? 'flex-end' : 'flex-start') + '; background: ' + (on ? '#1698D9' : '#FFFFFF'),
+      knob: 'display: block; width: 26px; height: 26px; border-radius: 50%; background: ' + (on ? '#FFFFFF' : '#858585')
+    };
+  }
+  renderVals() {
+    const d = this.sw(this.state.dev);
+    const r = this.sw(this.state.res);
+    return {
+      teamName: this.props.teamName ?? '◯◯先生のチーム',
+      univName: this.props.univName ?? '◯◯大学',
+      devOn: this.state.dev ? 'true' : 'false',
+      resOn: this.state.res ? 'true' : 'false',
+      devText: this.state.dev ? 'オン' : 'オフ',
+      resText: this.state.res ? 'オン' : 'オフ',
+      devTrack: d.track, devKnob: d.knob,
+      resTrack: r.track, resKnob: r.knob,
+      toggleDev: () => this.setState({ dev: !this.state.dev }),
+      toggleRes: () => this.setState({ res: !this.state.res })
+    };
+  }
+}
+</script>
+</body>
+</html>

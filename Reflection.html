@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>あそんだあと</title>
+<meta name="viewport" content="width=390, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFBC10">
+<link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="stylesheet" href="app.css">
+<script src="dc-lite.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=M+PLUS+Rounded+1c:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1698D9}a:hover{color:#1176AD}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; box-sizing: border-box; background: #F8F8F8; font-family: 'BIZ UDPGothic', sans-serif; color: #333333; position: relative; overflow: hidden">
+  <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 250px; background: #FFF6CC; border-radius: 0 0 48px 48px"></div>
+  <div aria-hidden="true" style="position: absolute; left: 30px; top: 30px; width: 12px; height: 12px; border-radius: 50%; background: #FFB3C8"></div>
+  <div aria-hidden="true" style="position: absolute; left: 300px; top: 24px; width: 14px; height: 14px; border-radius: 4px; background: #A8D8FF; transform: rotate(25deg)"></div>
+  <div aria-hidden="true" style="position: absolute; left: 340px; top: 90px; width: 10px; height: 10px; border-radius: 50%; background: #B8E8B8"></div>
+  <div aria-hidden="true" style="position: absolute; left: 60px; top: 120px; width: 10px; height: 10px; border-radius: 3px; background: #FFD0A0; transform: rotate(-20deg)"></div>
+  <div aria-hidden="true" style="position: absolute; left: 250px; top: 70px; width: 8px; height: 8px; border-radius: 50%; background: #FFA8A8"></div>
+
+  <div style="position: relative; display: flex; flex-direction: column; gap: 16px; padding: 36px 20px 28px; box-sizing: border-box">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+      <div style="font-size: 14px; color: #5C4600">きょうのあそび・5分・ARどうぶつ園</div>
+      <h1 style="margin: 0; font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 30px; font-weight: 800">やったね！おつかれさま</h1>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <div style="width: 60px; height: 60px; flex-shrink: 0; border-radius: 50%; background: #FFBC10; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 6px #FFE680" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 32 32" fill="none" stroke="#5A3D00" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="13" r="1.7" fill="#5A3D00" stroke="none"></circle><circle cx="21" cy="13" r="1.7" fill="#5A3D00" stroke="none"></circle><path d="M9 18.5c3.5 4.5 10.5 4.5 14 0"></path></svg>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <div style="font-size: 14px; color: #444444">{{childName}}のえがお</div>
+          <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-weight: 800"><span style="font-size: 36px">{{smileCount}}</span><span style="font-size: 16px"> 回 見つけたよ</span></div>
+        </div>
+      </div>
+      <div style="font-size: 14px; color: #5C5C5C">1枚えらんで、アルバムにのこそう</div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 2px" role="radiogroup" aria-label="ベストショット">
+        <sc-for list="{{shots}}" as="s" hint-placeholder-count="3">
+          <button type="button" role="radio" aria-checked="{{s.checked}}" aria-label="{{s.label}}" onClick="{{s.pick}}" style="{{s.style}}">
+            <span style="{{s.photo}}"></span>
+            <sc-if value="{{s.on}}" hint-placeholder-val="{{ false }}">
+              <span style="position: absolute; top: -6px; right: -6px; width: 26px; height: 26px; border-radius: 50%; background: #1698D9; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px #FFFFFF" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+            </sc-if>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="display: flex; flex-direction: column; gap: 4px; padding: 0 4px">
+        <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 19px; font-weight: 800">きょうのすてきな声かけ</div>
+        <div style="font-size: 13px; color: #5C5C5C">AIが見つけて、数えました</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+        <sc-for list="{{dos}}" as="d" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+            <div style="{{d.bubble}}">
+              <span style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 24px; font-weight: 800; color: #333333">{{d.count}}</span>
+            </div>
+            <div style="font-size: 12px; line-height: 1.4; color: #444444">{{d.label}}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <div style="align-self: flex-start; background: #E3F4FD; border-radius: 20px 20px 20px 6px; padding: 10px 14px; font-size: 17px; font-weight: 700">「パンダさん、ジャンプしたね」</div>
+          <div style="font-size: 14px; line-height: 1.6; color: #444444; padding-left: 6px">見ているものを実況できていました</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <div style="align-self: flex-start; background: #FFE4EC; border-radius: 20px 20px 20px 6px; padding: 10px 14px; font-size: 17px; font-weight: 700">「タッチできたね、じょうず」</div>
+          <div style="font-size: 14px; line-height: 1.6; color: #444444; padding-left: 6px">できたことを、すぐにほめていました</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 19px; font-weight: 800; padding: 0 4px">きょうのコツ、できたかな？</div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <sc-for list="{{tips}}" as="t" hint-placeholder-count="2">
+          <button type="button" role="checkbox" aria-checked="{{t.checked}}" onClick="{{t.toggle}}" style="{{t.style}}">
+            <span style="{{t.box}}" aria-hidden="true">
+              <sc-if value="{{t.on}}" hint-placeholder-val="{{ true }}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </sc-if>
+            </span>
+            <span style="font-size: 15px; text-align: left; flex-grow: 1">{{t.label}}</span>
+            <sc-if value="{{t.on}}" hint-placeholder-val="{{ true }}">
+              <span style="font-size: 12px; font-weight: 700; background: #FFE680; border-radius: 999px; padding: 3px 8px; white-space: nowrap">できた！</span>
+            </sc-if>
+          </button>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px; padding: 4px 4px 0">
+        <div style="font-size: 15px; font-weight: 700">やってみてどうだった？</div>
+        <div style="font-size: 13px; line-height: 1.6; color: #5C5C5C">むずかしかったときは、先生が次のコツを工夫します</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px" role="radiogroup" aria-label="やってみてどうだった">
+        <sc-for list="{{feels}}" as="f" hint-placeholder-count="3">
+          <button type="button" role="radio" aria-checked="{{f.checked}}" onClick="{{f.pick}}" style="{{f.style}}">
+            <span style="{{f.face}}" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#333333" stroke-width="2.4" stroke-linecap="round"><circle cx="11.5" cy="13" r="1.7" fill="#333333" stroke="none"></circle><circle cx="20.5" cy="13" r="1.7" fill="#333333" stroke="none"></circle><path dc-d="{{f.mouth}}"></path></svg>
+            </span>
+            <span style="font-size: 13px">{{f.label}}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="display: flex; flex-direction: column; gap: 4px; padding: 0 4px">
+        <div style="font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 19px; font-weight: 800">うれしい瞬間はあった？</div>
+        <div style="font-size: 13px; color: #5C5C5C">なくても大丈夫。いくつでも選べます</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-for list="{{moments}}" as="mo" hint-placeholder-count="6">
+          <button type="button" aria-pressed="{{mo.pressed}}" onClick="{{mo.toggle}}" style="{{mo.style}}">
+            <sc-if value="{{mo.on}}" hint-placeholder-val="{{ false }}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+            </sc-if>
+            {{mo.label}}
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 28px; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 0 #E6E6E6">
+      <div style="font-size: 16px; font-weight: 700; padding: 0 4px">きょうの声の録音</div>
+      <div style="display: flex; flex-direction: column; gap: 8px" role="radiogroup" aria-label="きょうの声の録音">
+        <sc-for list="{{sendOpts}}" as="o" hint-placeholder-count="2">
+          <button type="button" role="radio" aria-checked="{{o.checked}}" onClick="{{o.pick}}" style="{{o.style}}">
+            <span style="{{o.radio}}" aria-hidden="true"><span style="{{o.dot}}"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 2px; text-align: left">
+              <span style="font-size: 15px; font-weight: 700">{{o.label}}</span>
+              <span style="font-size: 13px; line-height: 1.6; color: #5C5C5C">{{o.desc}}</span>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="flex-grow: 1"></div>
+    <a href="Album.html" style="display: flex; align-items: center; justify-content: center; height: 62px; border-radius: 999px; background: #FFBC10; color: #222222; font-family: 'M PLUS Rounded 1c', sans-serif; font-size: 20px; font-weight: 800; text-decoration: none; box-shadow: 0 5px 0 #D99A00">アルバムにのこす</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"childName":{"editor":"text","default":"ゆめちゃん"},"smileCount":{"editor":"int","default":3,"min":0,"max":30},"$preview":{"width":390,"height":1560}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { shot: 0, tips: { a: true, b: true }, feel: 'easy', picked: { eye: true }, send: 'send' };
+  }
+  renderVals() {
+    const shotBg = ['#FFF6CC', '#E3F4FD', '#FFE4EC'];
+    const rot = [-3, 2, -1];
+    const shots = [0, 1, 2].map((i) => {
+      const on = this.state.shot === i;
+      return {
+        on,
+        label: 'えがお ' + (i + 1),
+        checked: on ? 'true' : 'false',
+        pick: () => this.setState({ shot: i }),
+        style: 'position: relative; background: #FFFFFF; padding: 6px 6px 18px; border-radius: 8px; cursor: pointer; transform: rotate(' + rot[i] + 'deg); box-shadow: 0 3px 8px rgba(0,0,0,0.12); border: ' + (on ? '3px solid #1698D9' : '3px solid transparent'),
+        photo: 'display: block; height: 80px; border-radius: 4px; background: ' + shotBg[i]
+      };
+    });
+    const bubbleBg = ['#FFB3C8', '#A8D8FF', '#FFD0A0', '#B8E8B8'];
+    const dos = [
+      { label: 'ほめる', count: 3 },
+      { label: 'くりかえす', count: 2 },
+      { label: '実況中継', count: 5 },
+      { label: '気持ちを伝える', count: 1 }
+    ].map((d, i) => Object.assign({}, d, {
+      bubble: 'width: 60px; height: 56px; border-radius: 50% 50% 50% 14%; display: flex; align-items: center; justify-content: center; background: ' + bubbleBg[i] + '; box-shadow: 0 3px 0 rgba(0,0,0,0.1)'
+    }));
+    const tipDefs = [
+      { id: 'a', label: 'お子さんの行動を言葉にする' },
+      { id: 'b', label: 'お子さんの動きを真似る' }
+    ];
+    const tips = tipDefs.map((t) => {
+      const on = !!this.state.tips[t.id];
+      return {
+        label: t.label, on,
+        checked: on ? 'true' : 'false',
+        toggle: () => this.setState({ tips: Object.assign({}, this.state.tips, { [t.id]: !on }) }),
+        style: 'display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 8px 12px; border-radius: 18px; cursor: pointer; color: #333333; background: ' + (on ? '#F2F9FE' : '#FFFFFF') + '; border: ' + (on ? '3px solid #1698D9' : '2px solid #E6E6E6'),
+        box: 'flex-shrink: 0; width: 28px; height: 28px; box-sizing: border-box; border-radius: 50%; display: flex; align-items: center; justify-content: center; ' + (on ? 'background: #1698D9; border: 2px solid #1698D9' : 'background: #FFFFFF; border: 2px solid #858585')
+      };
+    });
+    const feelDefs = [
+      { id: 'easy', label: 'やりやすかった', mouth: 'M10 19c3 3.5 9 3.5 12 0', bg: '#FFE680' },
+      { id: 'soso', label: 'ふつう', mouth: 'M11 20h10', bg: '#A8D8FF' },
+      { id: 'hard', label: 'むずかしかった', mouth: 'M11 21c3-2.5 7-2.5 10 0', bg: '#D9CCF2' }
+    ];
+    const feels = feelDefs.map((f) => {
+      const on = this.state.feel === f.id;
+      return {
+        label: f.label, mouth: f.mouth,
+        checked: on ? 'true' : 'false',
+        pick: () => this.setState({ feel: f.id }),
+        style: 'display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 4px; border-radius: 18px; cursor: pointer; color: #333333; font-weight: ' + (on ? '700' : '400') + '; background: ' + (on ? '#F2F9FE' : '#FFFFFF') + '; border: ' + (on ? '3px solid #1698D9' : '2px solid #E6E6E6'),
+        face: 'width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: ' + f.bg
+      };
+    });
+    const chipBg = ['#FFE4EC', '#E3F4FD', '#FFEEDC', '#E5F7E5', '#FFF6CC', '#E8EEFF'];
+    const defs = [
+      { id: 'eye', label: '目があった' },
+      { id: 'copy', label: 'まねした' },
+      { id: 'voice', label: '声が出た' },
+      { id: 'near', label: 'そばに来た' },
+      { id: 'point', label: '指さした' },
+      { id: 'touch', label: 'さわってきた' }
+    ];
+    const picked = this.state.picked;
+    const moments = defs.map((d, i) => {
+      const on = !!picked[d.id];
+      return {
+        label: d.label, on,
+        pressed: on ? 'true' : 'false',
+        toggle: () => this.setState({ picked: Object.assign({}, picked, { [d.id]: !on }) }),
+        style: 'min-height: 46px; padding: 0 16px; border-radius: 999px; cursor: pointer; font-size: 15px; display: flex; align-items: center; gap: 6px; color: #333333; background: ' + chipBg[i] + '; ' + (on ? 'border: 3px solid #1698D9; font-weight: 700' : 'border: 2px solid transparent')
+      };
+    });
+    const opts = [
+      { id: 'send', label: '見守りチームに送る', desc: 'いいところ探しと、先生からのひとことに使われます' },
+      { id: 'keep', label: '声の録音は送らない', desc: '録音は消えます。えがおの回数と写真は残ります' }
+    ];
+    const sendOpts = opts.map((o) => {
+      const on = this.state.send === o.id;
+      return {
+        label: o.label, desc: o.desc,
+        checked: on ? 'true' : 'false',
+        pick: () => this.setState({ send: o.id }),
+        style: 'display: flex; gap: 12px; align-items: center; padding: 12px; border-radius: 18px; cursor: pointer; color: #333333; background: ' + (on ? '#F2F9FE' : '#FFFFFF') + '; border: ' + (on ? '3px solid #1698D9' : '2px solid #E6E6E6'),
+        radio: 'flex-shrink: 0; width: 24px; height: 24px; box-sizing: border-box; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 2px solid ' + (on ? '#1698D9' : '#858585'),
+        dot: 'display: block; width: 12px; height: 12px; border-radius: 50%; background: ' + (on ? '#1698D9' : 'transparent')
+      };
+    });
+    return {
+      childName: this.props.childName ?? 'ゆめちゃん',
+      smileCount: this.props.smileCount ?? 3,
+      shots, dos, tips, feels, moments, sendOpts
+    };
+  }
+}
+</script>
+</body>
+</html>

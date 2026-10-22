@@ -1,0 +1,24 @@
+/* 端末で見るための共通スタイル */
+html, body { margin: 0; background: #F8F8F8; }
+body { display: flex; justify-content: center; -webkit-text-size-adjust: 100%; }
+x-dc { display: block; visibility: hidden; width: 390px; }
+
+/* 画面の高さに合わせて伸び縮みさせる */
+x-dc > div { height: auto !important; min-height: 100vh; min-height: 100svh; }
+
+/* 下のメニューは画面下に固定 */
+x-dc nav[aria-label="メインメニュー"] {
+  position: fixed !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 0 !important;
+  top: auto !important;
+  width: 390px;
+  transform: translateX(-50%);
+  z-index: 10;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom)) !important;
+  height: auto !important;
+}
+body.has-nav x-dc > div { padding-bottom: 110px !important; }
+
+a, button { -webkit-tap-highlight-color: transparent; }
